@@ -1,0 +1,32 @@
+{% extends "wiki/base.html" %}
+
+{% block title %}PostBoard IrrigaABC{% endblock %}
+
+{% block content %}
+<a href="http://127.0.0.1:8000/admin/login/?next=/admin/">
+    Clique aqui para acessar o painel de publicação
+</a>
+
+    {% for post in post_list %}
+        <article>
+
+            <h2>
+                
+                <a href="{{ post.get_absolute_url }}">
+                    {{ post.title }} 
+                </a>
+            </h2>
+
+            {{ post.nota | linebreaks | truncatewords:10 }}
+
+            <p class="date">
+                <font color="red"> Publicado em {{ post.created }} por {{ post.autor }}</font>
+                <br>
+                <font color="red"> Ultima alteração em {{ post.updated }}</font>
+            </br>
+            </p>
+
+
+        </article>
+    {% endfor %}
+{% endblock %}

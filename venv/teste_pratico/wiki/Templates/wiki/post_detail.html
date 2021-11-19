@@ -1,0 +1,25 @@
+{% extends "wiki/base.html" %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+    <article>
+         <h3><font color="purple">Setor: {{ post.setor }}</font></h3>
+
+         <h3><font color="purple">Status: {{ post.status }}</font></h3>
+
+        <h2> {{ post.title }} </h2>
+         {{ post.nota | linebreaks }}
+
+        <p class="date">
+             <h5><font color="red">Publicado em {{ post.created }} por {{ post.autor }}</font></h5>
+        
+            <h5>
+                <b><a<input type='button' value='Voltar' onclick='history.go(-1)' />
+                    <font color="blue">Voltar</font> 
+                </a></b>
+            </h5>
+        </p>
+    </article>
+           
+{% endblock %}
